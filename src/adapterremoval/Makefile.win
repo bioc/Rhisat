@@ -1,0 +1,56 @@
+
+
+CXXFLAGS = -std=gnu++11 -O3 
+CPPFLAGS = -D_REENTRANT -lpthread -DNDEBUG 
+#CXX="$(BINPREF)/g++ -std=gnu++11"
+#CPPFLAGS = -pthread -lz -DAR_GZIP_SUPPORT  -DNDEBUG 
+
+SRCS = adapterset.cc \
+alignment.cc \
+argparse.cc \
+debug.cc \
+demultiplex.cc \
+fastq.cc \
+fastq_enc.cc \
+fastq_io.cc \
+linereader.cc \
+linereader_joined.cc \
+main_adapter_id.cc \
+main_adapter_rm.cc \
+main_demultiplex.cc \
+scheduler.cc \
+strutils.cc \
+threads.cc \
+timer.cc \
+trimmed_reads.cc \
+userconfig.cc \
+main.cc 
+
+ADRM_LIBRARY = adrm
+
+
+.PHONY: all clean AdapterRemoval
+
+OBJS = $(SRCS:.cc=.o)
+
+all: AdapterRemoval
+	cp AdapterRemoval ../../inst/
+
+
+AdapterRemoval:$(OBJS)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS)  -o $@ $^
+
+
+
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< 
+
+
+
+
+clean:
+	rm -f AdapterRemoval
+	rm -f ../../inst/AdapterRemoval
+	rm -f *.o
+	
+

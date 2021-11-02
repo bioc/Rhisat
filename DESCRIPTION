@@ -1,0 +1,23 @@
+Package: Rhisat
+Type: Package
+Title: An R Wrapper for hisat and AdapterRemoval
+Version: 1.0.0
+Date: 2021-10-31
+Author: Zheng Wei, Qixiu Du
+Maintainer: Zheng Wei <wzweizheng@qq.com>
+Description: This package provides an R wrapper of the popular hisat sequencing reads aligner and AdapterRemoval, a convenient tool for rapid adapter trimming, identification, and read merging.
+License: GPL (>= 3)
+Depends: R (>= 3.5)
+Suggests: knitr
+SystemRequirements: C++11
+Archs: x64
+RoxygenNote: 7.1.2
+biocViews: Sequencing, Alignment, Preprocessing
+VignetteBuilder: knitr
+git_url: https://git.bioconductor.org/packages/Rbowtie2
+git_branch: RELEASE_3_13
+git_last_commit: f15bc6e
+git_last_commit_date: 2021-05-19
+Date/Publication: 2021-05-19
+NeedsCompilation: yes
+Packaged: 2021-10-27 03:36:40 UTC; qxdu
