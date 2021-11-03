@@ -27,7 +27,7 @@ td <- tempdir()
 refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 full=TRUE)
 hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-"--threads 4 --quiet",overwrite=TRUE)
+"--quiet",overwrite=TRUE)
 if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
     cmdout<-hisat_inspect(bt2Index = file.path(td, "lambda_virus"),
        "--summary");cmdout 

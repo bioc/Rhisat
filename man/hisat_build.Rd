@@ -37,9 +37,9 @@ All additional arguments in ... are interpreted as additional
 parameters to be passed on to
 hisat_build. All of them should be \code{Character} or
 \code{Numeric} scalar. You can put all aditional
-arguments in one \code{Character}(e.g. "--threads 8 --quiet") with white
+arguments in one \code{Character}(e.g. "--seed 0 --quiet") with white
 space splited just like command line,
-or put them in different \code{Character}(e.g. "--threads","8","--quiet").
+or put them in different \code{Character}(e.g. "--seed","0","--quiet").
 See the output of
 \code{hisat_build_usage()} for details about available parameters.
 }
@@ -49,10 +49,10 @@ td <- tempdir()
 refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 full=TRUE)
 cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-"--threads 4 --quiet",overwrite=TRUE);cmdout
+"--quiet",overwrite=TRUE);cmdout
 ## Use additional arguments in another way
 cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-"--threads",4,"--quiet",overwrite=TRUE);cmdout
+"--quiet",overwrite=TRUE);cmdout
 ## The function will print the output
 ## during the process without "--quiet" argument.
 cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),

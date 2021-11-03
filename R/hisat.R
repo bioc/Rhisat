@@ -42,7 +42,7 @@
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)
 #' hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-#' "--threads 4 --quiet",overwrite=TRUE)
+#' "--quiet",overwrite=TRUE)
 #' ## Alignments
 #' reads_1 <- system.file(package="Rhisat", "extdata", "bt2", "reads",
 #' "reads_1.fastq")
@@ -123,9 +123,9 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
 #' parameters to be passed on to
 #' hisat_build. All of them should be \code{Character} or
 #' \code{Numeric} scalar. You can put all aditional
-#' arguments in one \code{Character}(e.g. "--threads 8 --quiet") with white
+#' arguments in one \code{Character}(e.g. "--seed 0 --quiet") with white
 #' space splited just like command line,
-#' or put them in different \code{Character}(e.g. "--threads","8","--quiet").
+#' or put them in different \code{Character}(e.g. "--seed","0","--quiet").
 #' See the output of
 #' \code{hisat_build_usage()} for details about available parameters.
 #' @author Qixiu Du
@@ -141,10 +141,10 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)
 #' cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-#' "--threads 4 --quiet",overwrite=TRUE);cmdout
+#' "--quiet",overwrite=TRUE);cmdout
 #' ## Use additional arguments in another way
 #' cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-#' "--threads",4,"--quiet",overwrite=TRUE);cmdout
+#' "--quiet",overwrite=TRUE);cmdout
 #' ## The function will print the output
 #' ## during the process without "--quiet" argument.
 #' cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
@@ -254,7 +254,7 @@ hisat_build_usage <- function() {
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)
 #' hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
-#' "--threads 4 --quiet",overwrite=TRUE)
+#' "--quiet",overwrite=TRUE)
 #' if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
 #'     cmdout<-hisat_inspect(bt2Index = file.path(td, "lambda_virus"),
 #'        "--summary");cmdout 
@@ -278,4 +278,23 @@ hisat_inspect <- function(bt2Index,...){
 
     invisible(.callbinary("hisat-inspect-s",paste(argvs,collapse = " ")))
 
+}
+
+#' @name hisat_inspect_usage
+#' @title Print available arguments for hisat_inspect_usage
+#' @description Note that some arguments to the
+#' hisat_inspect_usage are invalid if they are
+#' already handled as explicit function arguments.
+#' @author Qixiu Du
+#' @return hisat_inspect available arguments and their usage.
+#' @references Langmead B, Salzberg S.
+#' Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012, 9:357-359.
+#' @export hisat_inspect_usage
+#' @examples
+#' hisat_inspect_usage()
+hisat_inspect_usage <- function() {
+    if(R.Version()$arch=="i386"){
+        return("hisat is not available for 32bit, please use 64bit R instead")
+    }
+    .callbinary("hisat-inspect-s","-h")
 }
