@@ -1,5 +1,5 @@
 #' @name hisat
-#' @title Interface to hisat of hisat-0.1.6-beta-source.zip
+#' @title Interface to hisat of hisat-0.1.6-beta
 #' @description This function can be use to call wrapped \code{hisat}
 #' binary.
 #' @param bt2Index \code{Character} scalar. hisat index files
@@ -33,8 +33,9 @@
 #' @return An invisible \code{Integer} of call
 #' status. The value is 0 when there is not any mistakes
 #' Otherwise the value is non-zero.
-#' @references Langmead, B., & Salzberg, S. L. (2012).
-#' Fast gapped-read alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat
 #' @examples
 #' td <- tempdir()
