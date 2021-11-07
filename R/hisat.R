@@ -133,8 +133,9 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
 #' @return An invisible \code{Integer} of call status.
 #' The value is 0 when there is not any mistakes
 #' Otherwise the value is non-zero.
-#' @references Langmead, B., & Salzberg, S. L. (2012). Fast gapped-read
-#' alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_build
 #' @examples
 #' td <- tempdir()
@@ -184,8 +185,9 @@ hisat_build <- function(references,bt2Index,...,overwrite=FALSE){
 #' @return An invisible \code{Integer} of call status.
 #' The value is 0 when there is not any mistakes
 #' Otherwise the value is non-zero.
-#' @references Langmead, B., & Salzberg, S. L. (2012). Fast gapped-read
-#' alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_version
 #' @examples
 #' cmdout<-hisat_version();cmdout
@@ -203,8 +205,9 @@ hisat_version <- function(){
 #' already handled as explicit function arguments.
 #' @author Qixiu Du
 #' @return hisat available arguments and their usage.
-#' @references Langmead, B., & Salzberg, S. L. (2012). Fast gapped-read
-#' alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_usage
 #' @examples
 #' hisat_usage()
@@ -222,8 +225,9 @@ hisat_usage <- function(){
 #' already handled as explicit function arguments.
 #' @author Qixiu Du
 #' @return hisat_build available arguments and their usage.
-#' @references Langmead B, Salzberg S.
-#' Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012, 9:357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_build_usage
 #' @examples
 #' hisat_build_usage()
@@ -246,8 +250,9 @@ hisat_build_usage <- function() {
 #' @author QiXiu Du
 #' @return a FASTA file containing the sequences of the original references 
 #' (with all non-A/C/G/T characters converted to Ns)
-#' @references Langmead, B., & Salzberg, S. L. (2012).
-#' Fast gapped-read alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_inspect
 #' @examples
 #' td <- tempdir()
@@ -288,8 +293,9 @@ hisat_inspect <- function(bt2Index,...){
 #' already handled as explicit function arguments.
 #' @author Qixiu Du
 #' @return hisat_inspect available arguments and their usage.
-#' @references Langmead B, Salzberg S.
-#' Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012, 9:357-359.
+#' @references Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+#' spliced aligner with low memory requirements. Nat Methods 12, 
+#' 357-360 (2015).
 #' @export hisat_inspect_usage
 #' @examples
 #' hisat_inspect_usage()

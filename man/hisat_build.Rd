@@ -59,8 +59,9 @@ cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 overwrite=TRUE);cmdout
 }
 \references{
-Langmead, B., & Salzberg, S. L. (2012). Fast gapped-read
-alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+spliced aligner with low memory requirements. Nat Methods 12, 
+357-360 (2015).
 }
 \author{
 Qixiu Du

@@ -7,11 +7,11 @@
 hisat_inspect(bt2Index, ...)
 }
 \arguments{
-\item{...}{Additional arguments to be passed on to the binaries.
-See below for details.}
-
 \item{bt2Index}{\code{Character} scalar.name of any of the index files 
 but with the .X.bt2 or .rev.X.bt2 suffix omitted.}
+
+\item{...}{Additional arguments to be passed on to the binaries.
+See below for details.}
 }
 \value{
 a FASTA file containing the sequences of the original references 
@@ -35,8 +35,9 @@ if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
 
 }
 \references{
-Langmead, B., & Salzberg, S. L. (2012).
-Fast gapped-read alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+spliced aligner with low memory requirements. Nat Methods 12, 
+357-360 (2015).
 }
 \author{
 QiXiu Du

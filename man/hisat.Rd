@@ -2,7 +2,7 @@
 % Please edit documentation in R/hisat.R
 \name{hisat}
 \alias{hisat}
-\title{Interface to hisat of hisat-0.1.6-beta-source.zip}
+\title{Interface to hisat of hisat-0.1.6-beta}
 \usage{
 hisat(bt2Index, samOutput, seq1, ..., seq2 = NULL, overwrite = FALSE)
 }
@@ -72,8 +72,9 @@ if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
 
 }
 \references{
-Langmead, B., & Salzberg, S. L. (2012).
-Fast gapped-read alignment with Bowtie 2. Nature methods, 9(4), 357-359.
+Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+spliced aligner with low memory requirements. Nat Methods 12, 
+357-360 (2015).
 }
 \author{
 QiXiu Du

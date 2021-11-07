@@ -18,8 +18,9 @@ already handled as explicit function arguments.
 hisat_inspect_usage()
 }
 \references{
-Langmead B, Salzberg S.
-Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012, 9:357-359.
+Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+spliced aligner with low memory requirements. Nat Methods 12, 
+357-360 (2015).
 }
 \author{
 Qixiu Du
