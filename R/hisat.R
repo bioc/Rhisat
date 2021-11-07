@@ -238,7 +238,7 @@ hisat_build_usage <- function() {
 #' @title Interface to hisat-inspect of hisat-0.1.6-beta
 #' @description This function can be use to call wrapped \code{hisat-inspect}
 #' binary.
-#' @param bt2_base \code{Character} scalar.name of any of the index files 
+#' @param bt2Index \code{Character} scalar.name of any of the index files 
 #' but with the .X.bt2 or .rev.X.bt2 suffix omitted.
 #' @param ... Additional arguments to be passed on to the binaries.
 #' See below for details.

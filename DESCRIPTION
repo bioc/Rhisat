@@ -8,8 +8,9 @@ Maintainer: Zheng Wei <wzweizheng@qq.com>
 Description: This package provides an R wrapper of the popular hisat sequencing reads aligner and AdapterRemoval, a convenient tool for rapid adapter trimming, identification, and read merging.
 License: GPL (>= 3)
 Depends: R (>= 3.5)
+Encoding: UTF-8
 Suggests: knitr
-SystemRequirements: C++11
+SystemRequirements: C++11, GNU make
 Archs: x64
 RoxygenNote: 7.1.2
 biocViews: Sequencing, Alignment, Preprocessing

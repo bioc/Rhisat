@@ -10,7 +10,7 @@ hisat_inspect(bt2Index, ...)
 \item{...}{Additional arguments to be passed on to the binaries.
 See below for details.}
 
-\item{bt2_base}{\code{Character} scalar.name of any of the index files 
+\item{bt2Index}{\code{Character} scalar.name of any of the index files 
 but with the .X.bt2 or .rev.X.bt2 suffix omitted.}
 }
 \value{
