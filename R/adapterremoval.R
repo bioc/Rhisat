@@ -36,8 +36,8 @@
 #' @export identify_adapters
 #' @examples
 #' td <- tempdir()
-#' reads_1 <- system.file(package="Rbowtie2", "extdata", "adrm", "reads_1.fq")
-#' reads_2 <- system.file(package="Rbowtie2", "extdata", "adrm", "reads_2.fq")
+#' reads_1 <- system.file(package="Rhisat", "extdata", "adrm", "reads_1.fq")
+#' reads_2 <- system.file(package="Rhisat", "extdata", "adrm", "reads_2.fq")
 #' adapters <- identify_adapters(file1=reads_1,file2=reads_2,
 #' basename = file.path(td,"reads")
 #' ,"--threads 2",overwrite=TRUE)
@@ -80,7 +80,7 @@ identify_adapters <- function(file1,file2,...,basename = NULL,
 
 
 #' @name remove_adapters
-#' @title Interface to bowtie2 of adapterremoval-2.2.1a
+#' @title Interface to hisat of adapterremoval-2.2.1a
 #' @description This function can be use to call wrapped \code{AdapterRemoval}
 #' binary.
 #' @param file1 \code{Character} vector. For single-end sequencing,
@@ -141,8 +141,8 @@ identify_adapters <- function(file1,file2,...,basename = NULL,
 #' td <- tempdir()
 #'
 #' # Identify adapters
-#' reads_1 <- system.file(package="Rbowtie2", "extdata", "adrm", "reads_1.fq")
-#' reads_2 <- system.file(package="Rbowtie2", "extdata", "adrm", "reads_2.fq")
+#' reads_1 <- system.file(package="Rhisat", "extdata", "adrm", "reads_1.fq")
+#' reads_2 <- system.file(package="Rhisat", "extdata", "adrm", "reads_2.fq")
 #' adapters <- identify_adapters(file1=reads_1,file2=reads_2,
 #' basename=file.path(td,"reads"), "--threads 3",overwrite=TRUE)
 #'
