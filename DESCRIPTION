@@ -1,7 +1,7 @@
 Package: Rhisat
 Type: Package
 Title: An R Wrapper for Hisat and AdapterRemoval
-Version: 0.99.0
+Version: 1.0.0
 Date: 2021-10-31
 Author: Zheng Wei, Qixiu Du
 Maintainer: Qixiu Du <dqx18@mails.tsinghua.edu.cn>
@@ -13,7 +13,7 @@ Suggests: knitr
 SystemRequirements: C++11, GNU make
 Archs: x64
 RoxygenNote: 7.1.2
-biocViews: RNASeq, Sequencing, Alignment, Preprocessing
+biocViews: Sequencing, Alignment, Preprocessing
 VignetteBuilder: knitr
 git_url: https://github.com/Carla-Radames/Rhisat.git
 git_branch: RELEASE_3_13
@@ -21,3 +21,4 @@ git_last_commit: f15bc6e
 git_last_commit_date: 2021-05-19
 Date/Publication: 2021-05-19
 NeedsCompilation: yes
+Packaged: 2021-10-27 03:36:40 UTC; qxdu
