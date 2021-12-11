@@ -1,0 +1,53 @@
+#CXX = $(BINPREF)/g++ -std=gnu++11
+#include ${R_HOME}/etc${R_ARCH}/Makeconf
+ADRM_DIR = adapterremoval
+HISAT_DIR = hisat
+
+#ifeq "$(WIN)" "64"
+
+.PHONY:  clean all
+
+all: 
+	mkdir -p ../inst
+	(cd	$(ADRM_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf"  -fMakefile.win))
+	(cd $(HISAT_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf" -fMakefile.win))
+	(cd	$(HISAT_DIR) && ($(MAKE) move -fMakefile.win))
+
+
+
+clean:
+	(cd	$(ADRM_DIR) && ($(MAKE) clean -fMakefile.win))
+	(cd	$(HISAT_DIR) && ($(MAKE) clean -fMakefile.win))
+	rm -f ../inst/hisat-build-s
+	rm -f ../inst/hisat-align-s
+	rm -f ../inst/hisat-inspect-s
+	rm -f hisat-build-s
+	rm -f hisat-align-s
+	rm -f hisat-inspect-s
+	rm -f *.o
+
+
+#else
+
+#.PHONY: clean all
+
+#all: 
+#	mkdir -p ../inst
+#	(cd	$(ADRM_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf" -f Makefile.win))
+#	$(CXX) -c  bowtie2_32.cpp
+#	$(CXX) bowtie2_32.o -o bowtie2-align-s
+#	$(CXX) bowtie2_32.o -o bowtie2-build-s
+#	cp bowtie2-build-s ../inst
+#	cp bowtie2-align-s ../inst
+
+
+#clean:
+#	(cd	$(ADRM_DIR) && ($(MAKE) clean -fMakefile.win))
+#	(cd	$(BT2_DIR) && ($(MAKE) clean -fMakefile.win))
+#	rm -f ../inst/bowtie2-build-s
+#	rm -f ../inst/bowtie2-align-s
+#	rm -f bowtie2-build-s
+#	rm -f bowtie2-align-s
+#	rm -f *.o
+
+#endif

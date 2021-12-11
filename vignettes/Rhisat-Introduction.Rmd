@@ -1,0 +1,218 @@
+---
+title: "An Introduction to Rhisat"
+author: "Zheng Wei and Wei Zhang"
+date: '`r Sys.Date()`'
+output:
+  html_document: default
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{An Introduction to Rhisat}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction
+
+The package provides an R wrapper of
+[Hisat](http://ccb.jhu.edu/software/hisat/index.shtml) and
+[AdapterRemoval](https://github.com/MikkelSchubert/adapterremoval).
+
+Hisat is a fast and sensitive spliced alignment program.
+With hierarchical indexing schema, Hisat is much faster >50 
+times than TopHat2 with better alignment quality. Hisat performs well 
+in the [alignment speed](https://www.nature.com/articles/nmeth.3317/figures/6) 
+of the programs in terms of the number of reads processed per second.[1]
+AdapterRemoval is a convenient tool for rapid adapter trimming,
+identification, and read merging[2]. 
+Both of them are implemented with C++. We wrap them
+into an R package that provide user friendly interfaces for R users.
+
+You can preprocess the raw sequencing data by using AadapterRemoval even
+if adapter(s) information is missing. Then, Hisat can aligned these
+preprocessed reads to the references. 
+
+This package is developed and maintained by members of 
+[Xiaowo Wang Lab](http://bioinfo.au.tsinghua.edu.cn/member/xwwang)
+
+MOE Key Laboratory of Bioinformatics and Bioinformatics Division, 
+
+TNLIST / Department of Automation, Tsinghua University
+
+contact:{wei-z14,w-zhang16}(at)mails.tsinghua.edu.cn
+
+## An Example Workflow by Using Rhisat
+
+
+
+### Installation
+
+To install the latest version of Rhisat, you will need to be using the
+latest version of R. Rhisat is part of Bioconductor project, 
+so you can install Rhisat and its dependencies like this:
+
+```{r install, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Rhisat")
+```
+
+### Loading
+
+Just like other R package, 
+you need to load Rhisat like this each time before using the package.
+```{r loading}
+library(Rhisat)
+```
+
+### AdapterRemoval
+
+All package functions mentioned in this subsection 
+use the binary of AdapterRemoval.
+
+#### Idetitify Adapter
+
+If you know the adapter sequence of reads files, you can skip this step.
+Besides,single end data is not support for this function yet so adapter
+sequence has to be known .
+
+
+reads_1 and reads_2 are raw paired-end reads file with fastq format.
+adapters is two adapters character vector. 
+
+```{r idad}
+td <- tempdir()
+reads_1 <- system.file(package="Rhisat", "extdata", "adrm", "reads_1.fq")
+reads_2 <- system.file(package="Rhisat", "extdata", "adrm", "reads_2.fq")
+(adapters <- 
+    identify_adapters(file1=reads_1,file2=reads_2,
+                      basename=file.path(td,"reads"),
+                      "--threads 3",overwrite=TRUE))
+```
+
+#### Remove Adapter
+
+With known adapter sequence, 
+remove_adapter function can be call to trim adapters.  
+
+```{r rmad}
+(cmdout<-remove_adapters(file1=reads_1,file2=reads_2,adapter1 = adapters[1], 
+                adapter2 = adapters[2],
+output1=file.path(td,"reads_1.trimmed.fq"),
+output2=file.path(td,"reads_2.trimmed.fq"),
+basename=file.path(td,"reads.base"),overwrite=TRUE,"--threads 3"))
+```
+
+
+#### Additional Arguments and Version
+
+If you need to set additional arguments like "--threads 3" above, 
+you can call function below to print all options available. 
+The fixed arguments like file1, file2 and basename etc. are invalid.
+
+```{r adrmusage}
+adapterremoval_usage()
+```
+
+You can get version information by call:
+
+```{r adrmversion}
+adapterremoval_version()
+```
+
+
+### Hisat
+All package functions mentioned in this subsection 
+use the binary of Hisat. 
+Note that Hisat is support 64bit R.
+
+#### Build Hisat Index
+Before aligning reads, Hisat index should be build. 
+refs is a character vector of fasta reference file paths. 
+A prefix of Hisat index should be set to argument bt2Index. 
+Then, 6 index files with .bt2 file name extension will 
+be created with bt2Index prefix.
+
+Differ from Bowtie2, Hisat build both global and local FM
+index. In addition to spliced alignment, HISAT handles reads 
+involving indels and supports a paired-end alignment mode. 
+
+```{r hs_bd}
+td <- tempdir()
+refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),full=TRUE)
+(cmdout<-hisat_build(references=refs, 
+              bt2Index=file.path(td, "lambda_virus"), "--quiet",
+              overwrite=TRUE))
+```
+
+#### Additional Arguments of Hisat Build
+
+If you need to set additional arguments like 
+"--quiet" above, 
+you can call function below to print all options available. 
+The fixed arguments references, bt2Index are invalid.
+
+```{r hs_bd_usage}
+hisat_build_usage()
+```
+
+#### Hisat Alignment
+
+The variable reads_1 and reads_1 are preprocessed reads file paths. 
+With hisat index(.bt), 
+reads will be mapped to reference by calling hisat. 
+The result is saved in a sam file whose path is set to samOutput 
+
+```{r hs_align}
+reads_1 <- system.file(package="Rhisat", "extdata", 
+                       "bt2", "reads", "reads_1.fastq")
+reads_2 <- system.file(package="Rhisat", "extdata", 
+                       "bt2", "reads", "reads_2.fastq")
+if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
+    (cmdout<-hisat(bt2Index = file.path(td, "lambda_virus"),
+        samOutput = file.path(td, "result.sam"),
+    seq1=reads_1,seq2=reads_2,overwrite=TRUE,"--threads 3"))
+    head(readLines(file.path(td, "result.sam")))
+}
+```
+
+#### Additional Arguments and Version of Hisat Aligner
+
+If you need to set additional arguments like "--threads 3" above, 
+you can call function below to print all options available. 
+The fixed arguments like bt2Index, samOutput and seq1 etc. are invalid.
+
+```{r hs_usage}
+hisat_usage()
+```
+
+You can get version information by call:
+
+```{r hs_version}
+hisat_version()
+```
+
+
+## Session Infomation
+
+```{r sessioninfo}
+sessionInfo()
+```
+
+## Acknowledgement
+
+I would strongly appreciate Wei Zheng's work for
+package testing and template construction.
+
+## References
+
+[1] Kim, D., Langmead, B. & Salzberg, S. HISAT: a fast 
+spliced aligner with low memory requirements. Nat Methods 12, 
+357-360 (2015). https://doi.org/10.1038/nmeth.3317
+
+[2] Schubert, Lindgreen, and Orlando (2016). AdapterRemoval v2: rapid
+adapter trimming, identification, and read merging. BMC Research Notes,
+12;9(1):88.
+

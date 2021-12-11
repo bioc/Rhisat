@@ -1,0 +1,26 @@
+# C++ code
+/src/*.o
+/src/*.dll
+/src/*.so
+/src/*.a
+/src/*/*.o
+/src/*/*.dll
+/src/*/*.so
+/src/*/*.a
+/src/*/*.exe
+/src/*/AdapterRemoval
+/src/*/hisat-align-s
+/src/*/hisat-build-s
+/src/*/hisat-inspect-s
+/src/*/hisat-align-l
+/src/*/hisat-build-l
+/src/*/hisat-inspect-l
+
+/inst/AdapterRemoval
+/inst/hisat-align-s
+/inst/hisat-build-s
+/inst/hisat-inspect-s
+/inst/hisat-align-l
+/inst/hisat-build-l
+/inst/hisat-inspect-l
+/inst/*.exe
