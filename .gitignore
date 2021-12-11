@@ -1,3 +1,5 @@
+.Rhistory
+
 # C++ code
 /src/*.o
 /src/*.dll
