@@ -1,7 +1,7 @@
 Package: Rhisat
 Type: Package
 Title: An R Wrapper for Hisat and AdapterRemoval
-Version: 0.99.4
+Version: 0.99.5
 Date: 2021-10-31
 Authors@R: 
     c(person(given = "Qixiu", family = "Du", role = c("aut","cre"), 
