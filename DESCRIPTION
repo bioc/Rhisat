@@ -3,9 +3,14 @@ Type: Package
 Title: An R Wrapper for Hisat and AdapterRemoval
 Version: 0.99.2
 Date: 2021-10-31
-Author: Zheng Wei, Qixiu Du
-Maintainer: Qixiu Du <dqx18@mails.tsinghua.edu.cn>
-Description: This package provides an R wrapper of the popular hisat sequencing reads aligner and AdapterRemoval, a convenient tool for rapid adapter trimming, identification, and read merging.
+Authors@R: 
+    c(person(given = "Qixiu", family = "Du", role = c("aut","cre"), 
+            email = "3178627218@qq.com"),
+    person(given = "Zheng", family = "Wei", role = c("aut"), 
+            email = "wzweizheng@qq.com"))
+Description: This package provides an R wrapper of the popular hisat sequencing 
+    reads aligner and AdapterRemoval, a convenient tool for rapid adapter trimming, 
+    identification, and read merging.
 License: GPL (>= 3)
 Depends: R (>= 3.5)
 Encoding: UTF-8
