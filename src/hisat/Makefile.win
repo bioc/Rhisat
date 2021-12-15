@@ -53,8 +53,8 @@ ifneq (,$(findstring $(shell uname -m), x86_64 amd64))
 else ifneq (,$(findstring $(shell uname -m), aarch64 arm64 s390x ppc64 ppc64le))
   BITS := 64
   SSE_FLAG :=
-  CXXFLAGS += -fopenmp-simd
-  CPPFLAGS += -Ithird_party
+  EXTRA_FLAGS += -fopenmp-simd
+  INC += -Ithird_party
   POPCNT_CAPABILITY ?= 0
 endif
 
