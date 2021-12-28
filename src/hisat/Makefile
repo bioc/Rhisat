@@ -137,7 +137,7 @@ HISAT_CPPS_MAIN = $(SEARCH_CPPS) hisat_main.cpp
 HISAT_BUILD_CPPS_MAIN = $(BUILD_CPPS) hisat_build_main.cpp
 
 SEARCH_FRAGMENTS = $(wildcard search_*_phase*.c)
-VERSION = $(shell cat VERSION)
+VERSION = $(shell cat HISAT_VERSION)
 
 # Convert BITS=?? to a -m flag
 BITS=32
@@ -209,7 +209,7 @@ GENERAL_LIST = $(wildcard scripts/*.sh) \
 	MANUAL \
 	MANUAL.markdown \
 	TUTORIAL \
-	VERSION
+	HISAT_VERSION
 
 ifeq (1,$(WINDOWS))
 	HISAT_BIN_LIST := $(HISAT_BIN_LIST) hisat.bat hisat-build.bat hisat-inspect.bat 
@@ -240,7 +240,7 @@ both: hisat-align-s hisat-align-l  hisat-build-s hisat-build-l
 both-debug: hisat-align-s-debug hisat-align-l-debug hisat-build-s-debug hisat-build-l-debug
 
 DEFS=-fno-strict-aliasing \
-     -DHISAT_VERSION="\"`cat VERSION`\"" \
+     -DHISAT_VERSION="\"`cat HISAT_VERSION`\"" \
      -DBUILD_HOST="\"`hostname`\"" \
      -DBUILD_TIME="\"`date`\"" \
      -DCOMPILER_VERSION="\"`$(CXX) -v 2>&1 | tail -1`\"" \
