@@ -1,7 +1,7 @@
 ADRM_DIR = adapterremoval
 HISAT_DIR = hisat
 
-CXX = g++
+# CXX = g++
 
 .PHONY: all clean
 
