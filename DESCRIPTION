@@ -1,8 +1,7 @@
 Package: Rhisat
-Type: Package
-Title: An R Wrapper for Hisat and AdapterRemoval
 Version: 0.99.9
 Date: 2021-10-31
+Title: An R Wrapper for Hisat and AdapterRemoval
 Authors@R: 
     c(person(given = "Qixiu", family = "Du", role = c("aut","cre"), 
             email = "3178627218@qq.com"),
@@ -13,19 +12,21 @@ Description: Preprocessing, alignment, quantification and analysis of
         hisat and AdapterRemoval. Includes functionality for adapter trimming,
         read merging, read mapping, read counting and index construction.
         Can be applied to FASTQ, FASTA, QSEQ and other major file format. 
+URL: http://bioconductor.org/packages/Rhisat
 License: GPL (>= 3)
 Depends: R (>= 3.5)
 Encoding: UTF-8
 Suggests: knitr
 SystemRequirements: C++11, GNU make
-Archs: x64
 RoxygenNote: 7.1.2
-biocViews: Sequencing, Alignment, Preprocessing
 VignetteBuilder: knitr
+biocViews: Sequencing, Alignment, Preprocessing, RNASeq,
+        GeneExpression, GenomeAnnotation
 git_url: https://github.com/Carla-Radames/Rhisat.git
-git_branch: RELEASE_3_13
-git_last_commit: f15bc6e
-git_last_commit_date: 2021-05-19
-Date/Publication: 2021-05-19
+git_branch: v1.0.0
+git_last_commit: 52d1cd1
+git_last_commit_date: 2022-02-06
+Date/Publication: 2022-02-06
 NeedsCompilation: yes
 Packaged: 2021-10-27 03:36:40 UTC; qxdu
+Archs: x64
