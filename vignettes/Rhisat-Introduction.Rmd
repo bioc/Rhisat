@@ -41,7 +41,7 @@ MOE Key Laboratory of Bioinformatics and Bioinformatics Division,
 
 TNLIST / Department of Automation, Tsinghua University
 
-contact:{wei-z14,w-zhang16}(at)mails.tsinghua.edu.cn
+contact:{wei-z14,dqx18}(at)mails.tsinghua.edu.cn
 
 ## An Example Workflow by Using Rhisat
 

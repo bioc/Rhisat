@@ -1,16 +1,18 @@
 Package: Rhisat
 Type: Package
 Title: An R Wrapper for Hisat and AdapterRemoval
-Version: 0.99.8
+Version: 0.99.9
 Date: 2021-10-31
 Authors@R: 
     c(person(given = "Qixiu", family = "Du", role = c("aut","cre"), 
             email = "3178627218@qq.com"),
     person(given = "Zheng", family = "Wei", role = c("aut"), 
             email = "wzweizheng@qq.com"))
-Description: This package provides an R wrapper of the popular hisat sequencing 
-    reads aligner and AdapterRemoval, a convenient tool for rapid adapter trimming, 
-    identification, and read merging.
+Description: Preprocessing, alignment, quantification and analysis of
+        bulk RNA sequencing data. Encapsulates the basic functions of 
+        hisat and AdapterRemoval. Includes functionality for adapter trimming,
+        read merging, read mapping, read counting and index construction.
+        Can be applied to FASTQ, FASTA, QSEQ and other major file format. 
 License: GPL (>= 3)
 Depends: R (>= 3.5)
 Encoding: UTF-8
