@@ -32,7 +32,7 @@ refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 full=TRUE)
 hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 "--quiet",overwrite=TRUE)
-Sys.sleep(2)
+Sys.sleep(1)
 if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
     cmdout<-hisat_inspect(bt2Index = file.path(td, "lambda_virus"),
        "--summary");cmdout 

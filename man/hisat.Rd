@@ -70,7 +70,7 @@ refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 full=TRUE)
 hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 "--quiet",overwrite=TRUE)
-Sys.sleep(2)
+Sys.sleep(1)
 ## Alignments
 reads_1 <- system.file(package="Rhisat", "extdata", "bt2", "reads",
 "reads_1.fastq")
