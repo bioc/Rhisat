@@ -8,4 +8,7 @@ Organize DESCRIPTION files into a bioinformatics format.
 
 \item
 Use system2 instead of system in calling to the hisat library.
+
+\item
+Use scripts like hisat instead of binary files.
 }}
