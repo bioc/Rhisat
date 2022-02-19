@@ -1,20 +1,18 @@
-citHeader("Please cite Wei, Zheng, et al. \"esATAC: an easy-to-use systematic pipeline for ATAC-seq data analysis.\" Bioinformatics (2018) for using Rbowtie2.")
+citHeader("Please cite Kim, D., et al. \"HISAT: a fast spliced aligner with low memory requirements.\" Nature methods (2015) for using Rhisat.")
 
 citEntry(entry  ="ARTICLE",
-         title  = "esATAC: an easy-to-use systematic pipeline for ATAC-seq data analysis",
+         title  = "HISAT: a fast spliced aligner with low memory requirements",
          author = personList(
-             as.person("Zheng Wei"),
-             as.person("Wei Zhang"),
-             as.person("Huan Fang"),
-             as.person("Yanda Li"),
-             as.person("Xiaowo Wang")
+             as.person("Daehwan Kim"),
+             as.person("Ben Langmead"),
+             as.person("Steven L Salzberg")
              ),
-         journal = "Bioinformatics",
-         year    = "2018",
-         volume  = "",
-         number  = "",
-         pages   = "",
-         PMID    = "29522192",
-         doi     = "10.1093/bioinformatics/bty141",
-         textVersion = "Wei, Zheng, et al. \"esATAC: an easy-to-use systematic pipeline for ATAC-seq data analysis.\" Bioinformatics (2018)",
+         journal = "Nature Methods",
+         year    = "2015",
+         volume  = "12",
+         number  = "4",
+         pages   = "357-360",
+         PMID    = "25751142",
+         doi     = "10.1038/nmeth.3317",
+         textVersion = "Kim, D., et al. \"HISAT: a fast spliced aligner with low memory requirements.\" Nature methods (2015)",
          )

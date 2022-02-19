@@ -262,7 +262,7 @@ adapterremoval_version<- function(){
 .callbinary<- function(bin, args)
 {
     args <- gsub("^ *| *$", "", args)
-    call <- paste(shQuote(file.path(system.file(package="Rhisat"), bin)), args)
-    output <- system(call, intern=TRUE,show.output.on.console=TRUE)
+    call <- paste(file.path(system.file(package="Rhisat"), bin))
+    output <- system2(call, args=args, stdout=TRUE)
     return(output)
 }

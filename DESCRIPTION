@@ -1,32 +1,24 @@
 Package: Rhisat
+Type: Package
+Title: An R Wrapper for Hisat
 Version: 0.99.9
 Date: 2021-10-31
-Title: An R Wrapper for Hisat and AdapterRemoval
 Authors@R: 
     c(person(given = "Qixiu", family = "Du", role = c("aut","cre"), 
             email = "3178627218@qq.com"),
     person(given = "Zheng", family = "Wei", role = c("aut"), 
             email = "wzweizheng@qq.com"))
-Description: Preprocessing, alignment, quantification and analysis of
-        bulk RNA sequencing data. Encapsulates the basic functions of 
-        hisat and AdapterRemoval. Includes functionality for adapter trimming,
-        read merging, read mapping, read counting and index construction.
-        Can be applied to FASTQ, FASTA, QSEQ and other major file format. 
-URL: http://bioconductor.org/packages/Rhisat
+Description: An R interface to the HISAT short-anchored reads aligner
+        by Kim D. et al. (2015). The package includes functionality for 
+        creating genome index and performing the alignment of the reads. 
 License: GPL (>= 3)
-Depends: R (>= 3.5)
 Encoding: UTF-8
-Suggests: knitr
-SystemRequirements: C++11, GNU make
 RoxygenNote: 7.1.2
+Depends: R (>= 3.5)
+Suggests: knitr, testthat
 VignetteBuilder: knitr
-biocViews: Sequencing, Alignment, Preprocessing, RNASeq,
-        GeneExpression, GenomeAnnotation
-git_url: https://github.com/Carla-Radames/Rhisat.git
-git_branch: v1.0.0
-git_last_commit: 52d1cd1
-git_last_commit_date: 2022-02-06
-Date/Publication: 2022-02-06
-NeedsCompilation: yes
-Packaged: 2021-10-27 03:36:40 UTC; qxdu
+biocViews: Sequencing, Alignment, RNASeq, SplicedAlignment
+SystemRequirements: C++11, GNU make
+URL: http://bioconductor.org/packages/Rhisat
+BugReports: http://bioconductor.org/packages/Rhisat/issues
 Archs: x64

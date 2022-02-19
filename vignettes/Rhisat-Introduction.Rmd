@@ -27,8 +27,13 @@ in the [alignment speed](https://www.nature.com/articles/nmeth.3317/figures/6)
 of the programs in terms of the number of reads processed per second.[1]
 AdapterRemoval is a convenient tool for rapid adapter trimming,
 identification, and read merging[2]. 
+
 Both of them are implemented with C++. We wrap them
 into an R package that provide user friendly interfaces for R users.
+Basic functions like "hisat-align" is encapsulated as function "hisat",
+"hisat-build" is encapsulated as function "hisat_build". The options in
+original binary files are all migrated to Rhisat package. You can also
+use function like "hisat_usage" for more help information.
 
 You can preprocess the raw sequencing data by using AadapterRemoval even
 if adapter(s) information is missing. Then, Hisat can aligned these
