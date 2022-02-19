@@ -4,7 +4,7 @@
 \alias{hisat_inspect}
 \title{Interface to hisat-inspect of hisat-0.1.6-beta}
 \usage{
-hisat_inspect(bt2Index, ...)
+hisat_inspect(bt2Index, ..., exe = TRUE)
 }
 \arguments{
 \item{bt2Index}{\code{Character} scalar.name of any of the index files 
@@ -12,6 +12,9 @@ but with the .X.bt2 or .rev.X.bt2 suffix omitted.}
 
 \item{...}{Additional arguments to be passed on to the binaries.
 See below for details.}
+
+\item{exe}{\code{Logical}. Define whether execute the command if setting
+\code{TRUE}. Else it will return the command without execution.}
 }
 \value{
 a FASTA file containing the sequences of the original references 

@@ -263,7 +263,10 @@ adapterremoval_version<- function(){
 {
     args <- gsub("^ *| *$", "", args)
     call <- paste(file.path(system.file(package="Rhisat"), bin))
-    if (!exe) { return (call) }
+    if (!exe) { 
+        res=paste(call,args)
+        return (res) 
+    }
     output <- system2(call, args=args, stdout=TRUE)
     return(output)
 }

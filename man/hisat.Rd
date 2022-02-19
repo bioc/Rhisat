@@ -4,7 +4,15 @@
 \alias{hisat}
 \title{Interface to hisat of hisat-0.1.6-beta}
 \usage{
-hisat(bt2Index, samOutput, seq1, ..., seq2 = NULL, overwrite = FALSE)
+hisat(
+  bt2Index,
+  samOutput,
+  seq1,
+  ...,
+  seq2 = NULL,
+  overwrite = FALSE,
+  exe = TRUE
+)
 }
 \arguments{
 \item{bt2Index}{\code{Character} scalar. hisat index files
@@ -27,6 +35,9 @@ See below for details.}
 
 \item{overwrite}{\code{Logical}. Force overwriting of existing
 files if setting \code{TRUE}.}
+
+\item{exe}{\code{Logical}. Define whether execute the command if setting
+\code{TRUE}. Else it will return the command without execution.}
 }
 \value{
 An invisible \code{Integer} of call

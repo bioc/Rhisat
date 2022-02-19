@@ -4,7 +4,7 @@
 \alias{hisat_build}
 \title{Interface to hisat-build of hisat-0.1.6-beta}
 \usage{
-hisat_build(references, bt2Index, ..., overwrite = FALSE)
+hisat_build(references, bt2Index, ..., overwrite = FALSE, exe = TRUE)
 }
 \arguments{
 \item{references}{\code{Character} vector. The path to the files containing
@@ -22,6 +22,9 @@ See below for details.}
 
 \item{overwrite}{\code{Logical}. Force overwriting of existing files
 if setting \code{TRUE}.}
+
+\item{exe}{\code{Logical}. Define whether execute the command if setting
+\code{TRUE}. Else it will return the command without execution.}
 }
 \value{
 An invisible \code{Integer} of call status.

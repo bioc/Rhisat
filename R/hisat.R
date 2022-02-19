@@ -17,6 +17,8 @@
 #' See below for details.
 #' @param overwrite \code{Logical}. Force overwriting of existing
 #' files if setting \code{TRUE}.
+#' @param exe \code{Logical}. Define whether execute the command if setting
+#' \code{TRUE}. Else it will return the command without execution.
 #' @details All additional arguments in ... are interpreted as
 #' additional parameters to be passed on to
 #' hisat. All of them should be \code{Character} or
@@ -99,7 +101,7 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE, exe=TRU
 
     argvs <- c(paramArray,argvs,"-S",samOutput)
 
-    invisible(.callbinary("hisat-align-s",paste(argvs,collapse = " "),exe=exe))
+    invisible(.callbinary("hisat",paste(argvs,collapse = " "),exe=exe))
 
 }
 
@@ -120,6 +122,8 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE, exe=TRU
 #' See below for details.
 #' @param overwrite \code{Logical}. Force overwriting of existing files
 #' if setting \code{TRUE}.
+#' @param exe \code{Logical}. Define whether execute the command if setting
+#' \code{TRUE}. Else it will return the command without execution.
 #' @details All additional arguments in ... are interpreted as additional
 #' parameters to be passed on to
 #' hisat_build. All of them should be \code{Character} or
@@ -174,7 +178,7 @@ hisat_build <- function(references,bt2Index,...,overwrite=FALSE, exe=TRUE){
     argvs <- c(paramArray,references,bt2Index)
 
 
-    invisible(.callbinary("hisat-build-s",paste(argvs,collapse = " "),exe=exe))
+    invisible(.callbinary("hisat-build",paste(argvs,collapse = " "),exe=exe))
 
 }
 
@@ -195,7 +199,7 @@ hisat_version <- function(){
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
-    .callbinary("hisat-align-s","--version")
+    .callbinary("hisat","--version")
 }
 
 #' @name hisat_usage
@@ -215,7 +219,7 @@ hisat_usage <- function(){
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
-    .callbinary("hisat-align-s","-h")
+    .callbinary("hisat","-h")
 }
 
 #' @name hisat_build_usage
@@ -235,7 +239,7 @@ hisat_build_usage <- function() {
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
-    .callbinary("hisat-build-s","-h")
+    .callbinary("hisat-build","-h")
 }
 
 
@@ -247,6 +251,8 @@ hisat_build_usage <- function() {
 #' but with the .X.bt2 or .rev.X.bt2 suffix omitted.
 #' @param ... Additional arguments to be passed on to the binaries.
 #' See below for details.
+#' @param exe \code{Logical}. Define whether execute the command if setting
+#' \code{TRUE}. Else it will return the command without execution.
 #' @author QiXiu Du
 #' @return a FASTA file containing the sequences of the original references 
 #' (with all non-A/C/G/T characters converted to Ns)
@@ -282,7 +288,7 @@ hisat_inspect <- function(bt2Index,..., exe=TRUE){
 
     argvs <- c(paramArray,bt2Index)
 
-    invisible(.callbinary("hisat-inspect-s",paste(argvs,collapse = " "),exe=exe))
+    invisible(.callbinary("hisat-inspect",paste(argvs,collapse = " "),exe=exe))
 
 }
 
@@ -303,5 +309,5 @@ hisat_inspect_usage <- function() {
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
-    .callbinary("hisat-inspect-s","-h")
+    .callbinary("hisat-inspect","-h")
 }
