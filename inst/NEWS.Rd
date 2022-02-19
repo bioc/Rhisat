@@ -2,6 +2,11 @@
 \title{Rhisat News}
 \encoding{UTF-8}
 
+\section{Version 0.99.10}{\itemize{
+\item
+Modify examples of hisat function(hisat.R).
+}}
+
 \section{Version 0.99.9}{\itemize{
 \item
 Organize DESCRIPTION files into a bioinformatics format.
