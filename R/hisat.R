@@ -57,7 +57,7 @@
 #' }
 #'
 
-hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
+hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE, exe=TRUE){
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
@@ -99,7 +99,7 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
 
     argvs <- c(paramArray,argvs,"-S",samOutput)
 
-    invisible(.callbinary("hisat-align-s",paste(argvs,collapse = " ")))
+    invisible(.callbinary("hisat-align-s",paste(argvs,collapse = " "),exe=exe))
 
 }
 
@@ -152,7 +152,7 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE){
 #' cmdout<-hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 #' overwrite=TRUE);cmdout
 
-hisat_build <- function(references,bt2Index,...,overwrite=FALSE){
+hisat_build <- function(references,bt2Index,...,overwrite=FALSE, exe=TRUE){
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
@@ -174,7 +174,7 @@ hisat_build <- function(references,bt2Index,...,overwrite=FALSE){
     argvs <- c(paramArray,references,bt2Index)
 
 
-    invisible(.callbinary("hisat-build-s",paste(argvs,collapse = " ")))
+    invisible(.callbinary("hisat-build-s",paste(argvs,collapse = " "),exe=exe))
 
 }
 
@@ -267,7 +267,7 @@ hisat_build_usage <- function() {
 #' }
 #'
 
-hisat_inspect <- function(bt2Index,...){
+hisat_inspect <- function(bt2Index,..., exe=TRUE){
     if(R.Version()$arch=="i386"){
         return("hisat is not available for 32bit, please use 64bit R instead")
     }
@@ -282,7 +282,7 @@ hisat_inspect <- function(bt2Index,...){
 
     argvs <- c(paramArray,bt2Index)
 
-    invisible(.callbinary("hisat-inspect-s",paste(argvs,collapse = " ")))
+    invisible(.callbinary("hisat-inspect-s",paste(argvs,collapse = " "),exe=exe))
 
 }
 
