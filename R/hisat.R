@@ -47,6 +47,7 @@
 #' full=TRUE)
 #' hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 #' "--quiet",overwrite=TRUE)
+#' Sys.sleep(2)
 #' ## Alignments
 #' reads_1 <- system.file(package="Rhisat", "extdata", "bt2", "reads",
 #' "reads_1.fastq")
@@ -268,6 +269,7 @@ hisat_build_usage <- function() {
 #' full=TRUE)
 #' hisat_build(references=refs, bt2Index=file.path(td, "lambda_virus"),
 #' "--quiet",overwrite=TRUE)
+#' Sys.sleep(2)
 #' if(file.exists(file.path(td, "lambda_virus.1.bt2"))){
 #'     cmdout<-hisat_inspect(bt2Index = file.path(td, "lambda_virus"),
 #'        "--summary");cmdout 
