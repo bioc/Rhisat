@@ -460,6 +460,9 @@ clean:
 	rm -f ../../inst/hisat
 	rm -f ../../inst/hisat-build
 	rm -f ../../inst/hisat-inspect
+	rm -f ../../inst/hisat.bat
+	rm -f ../../inst/hisat-build.bat
+	rm -f ../../inst/hisat-inspect.bat
 	rm -f hisat-align-s
 	rm -f hisat-build-s
 	rm -f hisat-align-l
@@ -492,6 +495,9 @@ move: hisat-build-s hisat-align-s hisat-build-l hisat-align-l hisat hisat-build 
 	cp hisat ../../inst
 	cp hisat-build ../../inst
 	cp hisat-inspect ../../inst
+	cp hisat.bat ../../inst
+	cp hisat-build.bat ../../inst
+	cp hisat-inspect.bat ../../inst
 
 .PHONY: clean_dSYM
 clean_dSYM:

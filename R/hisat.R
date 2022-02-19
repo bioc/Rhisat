@@ -41,6 +41,7 @@
 #' @export hisat
 #' @examples
 #' td <- tempdir()
+#' td <- gsub("[\\]","/",td)
 #' ## Building a hisat index
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)
@@ -143,6 +144,7 @@ hisat <- function(bt2Index,samOutput,seq1,...,seq2=NULL,overwrite=FALSE, exe=TRU
 #' @export hisat_build
 #' @examples
 #' td <- tempdir()
+#' td <- gsub("[\\]","/",td)
 #' ## Building a hisat index
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)
@@ -262,6 +264,7 @@ hisat_build_usage <- function() {
 #' @export hisat_inspect
 #' @examples
 #' td <- tempdir()
+#' td <- gsub("[\\]","/",td)
 #' ## Building a hisat index
 #' refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 #' full=TRUE)

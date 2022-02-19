@@ -64,6 +64,7 @@ function arguments. See the output of
 }
 \examples{
 td <- tempdir()
+td <- gsub("[\\\\]","/",td)
 ## Building a hisat index
 refs <- dir(system.file(package="Rhisat", "extdata", "bt2","refs"),
 full=TRUE)
