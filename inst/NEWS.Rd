@@ -5,6 +5,9 @@
 \section{Version 0.99.11}{\itemize{
 \item
 Modify examples of hisat function(hisat.R).
+
+\item
+Fullfill tests examples.
 }}
 
 \section{Version 0.99.9}{\itemize{
