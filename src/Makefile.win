@@ -1,6 +1,6 @@
 #CXX = $(BINPREF)/g++ -std=gnu++11
 #include ${R_HOME}/etc${R_ARCH}/Makeconf
-ADRM_DIR = adapterremoval
+#ADRM_DIR = adapterremoval
 HISAT_DIR = hisat
 
 #ifeq "$(WIN)" "64"
@@ -9,14 +9,14 @@ HISAT_DIR = hisat
 
 all: 
 	mkdir -p ../inst
-	(cd	$(ADRM_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf"  -fMakefile.win))
+# (cd	$(ADRM_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf"  -fMakefile.win))
 	(cd $(HISAT_DIR) && ($(MAKE) -f"${R_HOME}/etc${R_ARCH}/Makeconf" -fMakefile.win))
 	(cd	$(HISAT_DIR) && ($(MAKE) move -fMakefile.win))
 
 
 
 clean:
-	(cd	$(ADRM_DIR) && ($(MAKE) clean -fMakefile.win))
+# (cd	$(ADRM_DIR) && ($(MAKE) clean -fMakefile.win))
 	(cd	$(HISAT_DIR) && ($(MAKE) clean -fMakefile.win))
 	rm -f ../inst/hisat-build-s
 	rm -f ../inst/hisat-align-s

@@ -17,16 +17,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Introduction
 
 The package provides an R wrapper of
-[Hisat](http://ccb.jhu.edu/software/hisat/index.shtml) and
-[AdapterRemoval](https://github.com/MikkelSchubert/adapterremoval).
+[Hisat](http://ccb.jhu.edu/software/hisat/index.shtml).
 
 Hisat is a fast and sensitive spliced alignment program.
 With hierarchical indexing schema, Hisat is much faster >50 
 times than TopHat2 with better alignment quality. Hisat performs well 
 in the [alignment speed](https://www.nature.com/articles/nmeth.3317/figures/6) 
 of the programs in terms of the number of reads processed per second.[1]
-AdapterRemoval is a convenient tool for rapid adapter trimming,
-identification, and read merging[2]. 
 
 Both of them are implemented with C++. We wrap them
 into an R package that provide user friendly interfaces for R users.
@@ -35,8 +32,8 @@ Basic functions like "hisat-align" is encapsulated as function "hisat",
 original binary files are all migrated to Rhisat package. You can also
 use function like "hisat_usage" for more help information.
 
-You can preprocess the raw sequencing data by using AadapterRemoval even
-if adapter(s) information is missing. Then, Hisat can aligned these
+You can preprocess the raw sequencing data by other Adapter process 
+tools. Then, Hisat can aligned these
 preprocessed reads to the references. 
 
 This package is developed and maintained by members of 
@@ -71,62 +68,6 @@ you need to load Rhisat like this each time before using the package.
 ```{r loading}
 library(Rhisat)
 ```
-
-### AdapterRemoval
-
-All package functions mentioned in this subsection 
-use the binary of AdapterRemoval.
-
-#### Idetitify Adapter
-
-If you know the adapter sequence of reads files, you can skip this step.
-Besides,single end data is not support for this function yet so adapter
-sequence has to be known .
-
-
-reads_1 and reads_2 are raw paired-end reads file with fastq format.
-adapters is two adapters character vector. 
-
-```{r idad}
-td <- tempdir()
-reads_1 <- system.file(package="Rhisat", "extdata", "adrm", "reads_1.fq")
-reads_2 <- system.file(package="Rhisat", "extdata", "adrm", "reads_2.fq")
-(adapters <- 
-    identify_adapters(file1=reads_1,file2=reads_2,
-                      basename=file.path(td,"reads"),
-                      "--threads 3",overwrite=TRUE))
-```
-
-#### Remove Adapter
-
-With known adapter sequence, 
-remove_adapter function can be call to trim adapters.  
-
-```{r rmad}
-(cmdout<-remove_adapters(file1=reads_1,file2=reads_2,adapter1 = adapters[1], 
-                adapter2 = adapters[2],
-output1=file.path(td,"reads_1.trimmed.fq"),
-output2=file.path(td,"reads_2.trimmed.fq"),
-basename=file.path(td,"reads.base"),overwrite=TRUE,"--threads 3"))
-```
-
-
-#### Additional Arguments and Version
-
-If you need to set additional arguments like "--threads 3" above, 
-you can call function below to print all options available. 
-The fixed arguments like file1, file2 and basename etc. are invalid.
-
-```{r adrmusage}
-adapterremoval_usage()
-```
-
-You can get version information by call:
-
-```{r adrmversion}
-adapterremoval_version()
-```
-
 
 ### Hisat
 All package functions mentioned in this subsection 
@@ -217,7 +158,4 @@ package testing and template construction.
 spliced aligner with low memory requirements. Nat Methods 12, 
 357-360 (2015). https://doi.org/10.1038/nmeth.3317
 
-[2] Schubert, Lindgreen, and Orlando (2016). AdapterRemoval v2: rapid
-adapter trimming, identification, and read merging. BMC Research Notes,
-12;9(1):88.
 
